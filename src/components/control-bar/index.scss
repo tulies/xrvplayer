@@ -1,0 +1,190 @@
+.xrv-player{
+  .xrv-control-bar {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 16px;
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    color: #fff;
+
+    &::before {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: "";
+      height: 2.5em;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0,
+        rgba(0, 0, 0, 0.7) 100%
+      );
+      background-repeat: repeat-x;
+      z-index: -1;
+    }
+    .xrv-control-btn {
+      cursor: pointer;
+      color: #fff;
+      height: 100%;
+      width: 3em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .xrvfont {
+        font-size: 1.6em;
+      }
+    }
+
+    .xrv-control-txt {
+      font-size: 0.68em;
+    }
+
+
+    .xrv-remaining-time-display{
+      min-width: 3em;
+      text-align: center;
+    }
+    .xrv-duration-display{
+      min-width: 3em;
+      text-align: center;
+    }
+
+    // 播放进度条样式
+    .xrv-progress-control {
+      cursor: pointer;
+      flex: auto;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      margin: 0 0.66em 0 0.6em;
+
+      .xrv-progress-slider {
+        cursor: pointer;
+        // margin: 0 10px;
+        position: relative;
+        padding: 0;
+        // margin: 0 0.45em 0 0.45em;
+        -webkit-touch-callout: none;
+        user-select: none;
+        background-color: #73859f;
+        background-color: rgba(115, 133, 159, 0.5);
+        height: 2px;
+        flex: auto;
+      }
+      .xrv-load-progress{
+        position: absolute;
+        display: block;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        width: 0;
+        left: 0;
+        top: 0;
+        background: #bfc7d3;
+        background: rgba(115,133,159,.7);
+        width: 0;
+      }
+
+      .xrv-play-progress{
+        position: absolute;
+        display: block;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        width: 0;
+        left: 0;
+        top: 0;
+        background-color: #fff;
+        width: 0;
+
+        .xrv-play-current{
+          display: block;
+          width: 13px;
+          height: 13px;
+          border-radius: 13px;
+          // border: 1px solid #fff;
+          background-color: rgba($color: #ffffff, $alpha: .5);
+          position: absolute;
+          right: -6.5px;
+          top: -6px;
+          z-index: 1;
+
+          &::before{
+            display: block;
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 7px;
+            // border: 1px solid #fff;
+            background-color: #fff;
+            position: absolute;
+            left: 3px;
+            top: 3px;
+            z-index: 1;
+          }
+        }
+      }
+    }
+
+    // 直播
+    .xrv-live-control{
+      flex: auto;
+      display: none;
+      align-items: center;
+    }
+  }
+
+  // 已经开始，并且在play中的时候
+  &.xrv-has-started.xrv-user-inactive.xrv-playing {
+    .xrv-control-bar {
+      visibility: visible;
+      opacity: 0;
+      -webkit-transition: visibility 1s,opacity 1s;
+      -moz-transition: visibility 1s,opacity 1s;
+      -ms-transition: visibility 1s,opacity 1s;
+      -o-transition: visibility 1s,opacity 1s;
+      transition: visibility 1s,opacity 1s;
+    }
+  }
+
+  // 全屏下要更改全屏按钮
+  &.xrv-fullscreen .xrv-fullscreen-control .xrv-icon:before{
+    content: "\e711";
+  }
+
+  // 播放中
+  &.xrv-playing{
+    .xrv-control-bar .xrv-play-control .xrv-icon:before {
+      content: "\e6a5";
+    }
+  }
+
+
+  // 直播
+  &.xrv-live{
+    .xrv-control-bar {
+      .xrv-live-control{
+        display: flex;
+      }
+      .xrv-progress-control{
+        display: none;
+      }
+      .xrv-remaining-time-display{
+        display: none;
+      }
+      .xrv-duration-display{
+        display: none;
+      }
+    }
+  }
+}
+
+
+
+

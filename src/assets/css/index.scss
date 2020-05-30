@@ -1,0 +1,86 @@
+// @import '../font/iconfont.css';
+.xrvfont{
+  font-size: 1em;
+}
+.xrv-player{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #000000;
+  // 播放按钮
+  .xrv-playbtn{
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 16%;
+    padding-top: 16%;
+    min-width: 60px;
+    max-width: 100px;
+    min-height: 60px;
+    max-height: 100px;
+
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    background-image: url(http://h5.nty.tv189.com/static/projects/csite/tysx/detail/hv/img/base/play.png);
+  }
+  // 封面图
+  .xrv-poster{
+    position: absolute;
+    z-index: 90;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    // background-color: #000;
+    // background-image: url(http://tp.nty.tv189.com/mcover/2020/3/42598524/65536_7342748836.jpg);
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+  }
+
+  // video区域
+  .xrv-video{
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    >video{
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+
+  // 开始播放之后的状态表现
+  &.xrv-has-started{
+    .xrv-playbtn{
+      display: none;
+    }
+    .xrv-poster{
+      display: none;
+    }
+    .xrv-video{
+      display: block;
+      > video{
+        display: block;
+      }
+    }
+  }
+
+
+}
+

@@ -1,0 +1,43 @@
+@keyframes loading {
+  from {
+    -webkit-transform: rotate(0deg) translateZ(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg) translateZ(0);
+  }
+}
+
+.xrv-loading-spinner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  z-index: 50;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(12, 12, 12, 0.4);
+  font-family: "xrvfont" !important;
+
+  span.loading-icon {
+    // background-image: url(../img/loading-w.png);
+    // background-size: 100% 100%;
+    // background-position: center;
+    transform: rotate(0deg) translateZ(0);
+    transition-duration: 0ms;
+    animation-name: loading;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    z-index: 1;
+    font-size: 3em;
+    color: #fff;
+  }
+
+}
