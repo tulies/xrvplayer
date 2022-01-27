@@ -54,6 +54,6 @@
     "@tulies/event-middleware": "0.0.1",
     "global": "^4.4.0",
     "hls.js": "^0.13.2",
-    "three": "^0.115.0"
+    "three": "^0.137.0"
   }
 }
